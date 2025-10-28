@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import * as questaoController from '@/api/v1/internal/questao/controller';
 
 const router = Router();
 
@@ -11,8 +12,12 @@ const router = Router();
 
 /**
  * @summary
- * Internal routes will be added here as features are implemented
- * Example: router.use('/resource', resourceController);
+ * Question management routes
  */
+router.get('/questao', questaoController.listHandler);
+router.post('/questao', questaoController.createHandler);
+router.get('/questao/:id', questaoController.getHandler);
+router.put('/questao/:id', questaoController.updateHandler);
+router.delete('/questao/:id', questaoController.deleteHandler);
 
 export default router;

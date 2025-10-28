@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 /**
  * @page HomePage
  * @summary Home page of the application
@@ -6,6 +8,8 @@
  * @category public
  */
 export const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-lg shadow p-6">
@@ -19,7 +23,10 @@ export const HomePage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
+        <button
+          onClick={() => navigate('/questoes')}
+          className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow text-left"
+        >
           <div className="flex items-center justify-center w-12 h-12 bg-primary-100 rounded-lg mb-4">
             <svg
               className="w-6 h-6 text-primary-600"
@@ -35,11 +42,11 @@ export const HomePage = () => {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Criar Provas</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Banco de Questões</h3>
           <p className="text-sm text-gray-600">
-            Crie e gerencie provas com questões multimídia e banco de questões.
+            Gerencie questões com recursos multimídia e diferentes tipos de avaliação.
           </p>
-        </div>
+        </button>
 
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-center w-12 h-12 bg-secondary-100 rounded-lg mb-4">
@@ -57,9 +64,9 @@ export const HomePage = () => {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Aplicar Avaliações</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Criar Provas</h3>
           <p className="text-sm text-gray-600">
-            Aplique provas online para os alunos com controle de tempo e progresso.
+            Crie e configure provas selecionando questões do banco de dados.
           </p>
         </div>
 
